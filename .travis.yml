@@ -8,7 +8,7 @@ before_install:
   - docker run -d -p 80:80 provisionary:latest
 
 script:
-  - curl -s -o /dev/null -w "%{http_code}" http://drupal7.dev
+  - curl -I http://drupal7.dev
   - test "200" -eq $(curl -s -o /dev/null -w "%{http_code}" http://drupal7.dev)
 
 addons:
