@@ -5,7 +5,7 @@ services:
 
 before_install:
   - docker build -t provisionary:latest .
-  - docker run -d -p 80:80 provisionary:latest
+  - docker run --net=host -d -p 80:80 provisionary:latest
 
 script:
   - cat /etc/hosts
