@@ -5,12 +5,12 @@ services:
 
 before_install:
   - docker build -t provisionary:latest .
-  - docker run --net=host -d -p 80:80 provisionary:latest
+  - docker run -d -p 8000:80 provisionary:latest
 
 script:
   - cat /etc/hosts
-  - curl -v -I http://drupal7.dev
-  - test "200" -eq $(curl -s -o /dev/null -w "%{http_code}" http://drupal7.dev)
+  - curl -v -I http://drupal7.dev:8000
+  - test "200" -eq $(curl -s -o /dev/null -w "%{http_code}" http://drupal7.dev:8000)
 
 addons:
   hosts:
