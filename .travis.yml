@@ -11,6 +11,7 @@ script:
   - cat /etc/hosts
   - curl -v -I http://drupal7.dev:8000
   - test "200" -eq $(curl -s -o /dev/null -w "%{http_code}" http://drupal7.dev:8000)
+  - curl http://localhost
 
 addons:
   hosts:
