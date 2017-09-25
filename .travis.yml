@@ -6,6 +6,7 @@ services:
 before_install:
   - docker build -t provisionary:latest .
   - id=$(docker run -d -p 8000:80 provisionary:latest)
+  - docker logs $id
 
 script:
   - cat /etc/hosts
